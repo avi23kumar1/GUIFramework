@@ -33,14 +33,14 @@ public class ListImpClass implements ITestListener , ISuiteListener{
 	    String time = 	new Date().toString().replace(" ", "_").replace(":", "_");
 
 		ExtentSparkReporter spark = new ExtentSparkReporter("./AdvanceReport/report_"+time+".html");
-		spark.config().setDocumentTitle("CRM Test Suite Results");
-		spark.config().setReportName("CRM Report");
+		spark.config().setDocumentTitle("HMS Test Suite Results");
+		spark.config().setReportName("HMS Report");
 		spark.config().setTheme(Theme.DARK);
 		// add Env information & create test
 		report = new ExtentReports();
 		report.attachReporter(spark);
-		report.setSystemInfo("OS", "Windows-10");
-		report.setSystemInfo("BROWSER", "CHROME-100");
+		report.setSystemInfo("OS", "Windows-11");
+		report.setSystemInfo("BROWSER", "CHROME-125");
 
 	}
 

@@ -1,4 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="https://maven.apache.org/POM/4.0.0" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>ComcastCRMGUIFramework</groupId>
   <artifactId>ComcastCRMGUIFramework</artifactId>
@@ -20,7 +20,7 @@
 						<configuration>
 							<suiteXmlFiles>
 								<!-- TestNG suite XML files -->
-								<suiteXmlFile>suite_fullRegressionTest.xml</suiteXmlFile>
+								<suiteXmlFile>fullregression.xml</suiteXmlFile>
 							</suiteXmlFiles>
 						</configuration>
 					</plugin>
@@ -38,7 +38,7 @@
 						<configuration>
 							<suiteXmlFiles>
 								<!-- TestNG suite XML files -->
-								<suiteXmlFile>suite_smokeTest.xml</suiteXmlFile>
+								<suiteXmlFile>smoketest.xml</suiteXmlFile>
 							</suiteXmlFiles>
 						</configuration>
 					</plugin>
@@ -56,7 +56,7 @@
 						<configuration>
 							<suiteXmlFiles>
 								<!-- TestNG suite XML files -->
-								<suiteXmlFile>suite_regionalRegressionTest.xml</suiteXmlFile>
+								<suiteXmlFile>fullregressiontest1.xml</suiteXmlFile>
 							</suiteXmlFiles>
 						</configuration>
 					</plugin>
@@ -73,10 +73,16 @@
 	<dependency>
 	    <groupId>org.seleniumhq.selenium</groupId>
 	    <artifactId>selenium-java</artifactId>
-	    <version>4.8.3</version>
+	    <version>4.13.0</version>
 	</dependency>
 	
 	
+<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>8.0.29</version>
+</dependency>
 <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
 <dependency>
     <groupId>io.github.bonigarcia</groupId>
@@ -85,12 +91,8 @@
 </dependency>
 
 
-	<!-- https://mvnrepository.com/artifact/com.mysql/mysql-connector-j -->
-<dependency>
-    <groupId>com.mysql</groupId>
-    <artifactId>mysql-connector-j</artifactId>
-    <version>8.0.33</version>
-</dependency>
+
+
 <!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
 <dependency>
     <groupId>com.aventstack</groupId>
@@ -136,12 +138,12 @@
 <dependency>
     <groupId>org.apache.poi</groupId>
     <artifactId>poi-ooxml</artifactId>
-    <version>4.1.2</version>
+    <version>5.2.3</version>
 </dependency>
 <dependency>
     <groupId>org.apache.poi</groupId>
     <artifactId>poi</artifactId>
-    <version>4.1.2</version>
+    <version>5.2.3</version>
 </dependency>
 
 
@@ -149,7 +151,7 @@
 <dependency>
     <groupId>org.testng</groupId>
     <artifactId>testng</artifactId>
-    <version>6.14.3</version>
+    <version>7.7.1</version>
 </dependency>
 
 <dependency>

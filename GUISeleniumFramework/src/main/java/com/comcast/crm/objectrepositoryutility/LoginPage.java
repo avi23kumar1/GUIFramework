@@ -23,29 +23,28 @@ public class LoginPage extends WebDriverUtility{                              //
 		 this.driver = driver;
 		 PageFactory.initElements(driver, this);
 	 }
-	                           
-	@FindBy(name="user_name")                        // Rule-2 Object Creation
-	private WebElement usernameEdt;
-	
-	@FindBy(name="user_password")
-	private WebElement passwordEdt;
-	
-	@FindBy(id = "submitButton")
-	private WebElement loginBtn;
-	     
+	 public WebElement getUsername() {
+			return username;
+		}
+
+
+		public WebElement getPassword() {
+			return password;
+		}
+
+
+		public WebElement getSubmitbutton() {
+			return submitbutton;
+		}
+		@FindBy(name = "username")
+		private WebElement username;
+		@FindBy(name = "password")
+		private WebElement password;
+		@FindBy(name = "submit")
+		private WebElement submitbutton;
 	
 	                                             
-	public WebElement getUsernameEdt() {            //Rule-4 : Object Encapsulation
-		return usernameEdt;                        //Rule-5 : Object Utilization
-	}
-
-	public WebElement getPasswordEdt() {
-		return passwordEdt;
-	}
-
-	public WebElement getLoginBtn() {
-		return loginBtn;
-	}
+	
 	
 /**
  *  login to application based username , password , url argumnets 
@@ -53,14 +52,22 @@ public class LoginPage extends WebDriverUtility{                              //
  * @param username
  * @param password
  */
-	 public void loginToapp(String url , String username , String password) {
-		 waitForPageToLoad(driver);
-		 driver.get(url);	
-		// driver.manage().window().maximize();
-		 usernameEdt.sendKeys(username);
-		 passwordEdt.sendKeys(password);
-		 loginBtn.click();
-	 }
+
+		public void loginadmin( String username1 , String password1) { 
+			username.sendKeys(username1);
+			password.sendKeys(password1);
+			submitbutton.click();
+		 }
+		public void logindoctor(String username1 , String password1) {
+			username.sendKeys(username1);
+			password.sendKeys(password1);
+			submitbutton.click();
+		 }
+		public void loginpatient(String username1 , String password1) {
+			username.sendKeys(username1);
+			password.sendKeys(password1);
+			submitbutton.click();
+		 }	
 	
 	
 }

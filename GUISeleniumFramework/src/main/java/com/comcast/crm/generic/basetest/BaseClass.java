@@ -21,10 +21,10 @@ import com.comcast.crm.generic.fileutility.ExcelUtility;
 import com.comcast.crm.generic.fileutility.FileUtility;
 import com.comcast.crm.generic.webdriverutility.JavaUtility;
 import com.comcast.crm.generic.webdriverutility.UtilityClassObject;
-import com.comcast.crm.objectrepositoryutility.Home;
-import com.comcast.crm.objectrepositoryutility.LoginPage;
-
+import com.comcast.crm.generic.webdriverutility.WebDriverUtility;
 import io.github.bonigarcia.wdm.WebDriverManager;
+
+
 
 public class BaseClass {
 	/* Create Object */
@@ -32,6 +32,7 @@ public class BaseClass {
 	public FileUtility fLib = new FileUtility();
 	public ExcelUtility eLib = new ExcelUtility();
 	public JavaUtility jLib = new JavaUtility();
+	public WebDriverUtility dw=new WebDriverUtility();
 	public  WebDriver driver = null;
 	public  static WebDriver sdriver = null;
 
@@ -56,19 +57,19 @@ public class BaseClass {
 	   // String BROWSER	= fLib.getDataFromPropertiesFile("browser");
 	    String BROWSER = System.getProperty("browser" , fLib.getDataFromPropertiesFile("browser"));
 		if(BROWSER.equals("chrome")) {
-			WebDriverManager.chromedriver().setup();
+		WebDriverManager.chromedriver().setup();
 			ChromeOptions chromeOptions = new ChromeOptions();
 			driver = new ChromeDriver(chromeOptions);
 		}else if(BROWSER.equals("firefox")) {
-			WebDriverManager.firefoxdriver().setup();
+			
 			FirefoxOptions firefoxOption = new FirefoxOptions();
 			driver = new FirefoxDriver(firefoxOption);
 		}else if(BROWSER.equals("edge")) {
-			WebDriverManager.edgedriver().setup();
+			
 			EdgeOptions edgeOption = new EdgeOptions();
 			driver = new EdgeDriver(edgeOption);
 		}else {
-			WebDriverManager.chromedriver().setup();
+			
 			ChromeOptions chromeOptions = new ChromeOptions();
 			driver = new ChromeDriver(chromeOptions);
 		}
@@ -80,18 +81,17 @@ public class BaseClass {
 		public void configBM() throws Throwable {
 			System.out.println("=login=");
 			String URL = System.getProperty("url" ,fLib.getDataFromPropertiesFile("url") );
-			String USERNAME = System.getProperty("username" , fLib.getDataFromPropertiesFile("username"));
-			String PASSWORD = System.getProperty("password" , fLib.getDataFromPropertiesFile("password"));
-			LoginPage lp = new LoginPage(driver);
-			lp.loginToapp(URL, USERNAME, PASSWORD);
+		     dw.waitForPageToLoad(driver);	
+			driver.get(URL);
+			driver.manage().window().maximize();
 		}
 	    
 	    
 		@AfterMethod(groups = {"smokeTest", "regressionTest"})
 		public void configAM() {
 			System.out.println("=logout=");
-			Home hp = new Home(driver);
-			hp.logout();
+			//Home hp = new Home(driver);
+			//hp.logout();
 		}
 		
 	    

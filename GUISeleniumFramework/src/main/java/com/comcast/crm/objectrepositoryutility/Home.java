@@ -23,9 +23,57 @@ public class Home extends WebDriverUtility{
 		 this.driver = driver;
 		 PageFactory.initElements(driver, this);
 	 }
-	public void logout() {
-		
+	@FindBy(xpath ="//a[@href='hms/user-login.php']")
+	WebElement patients;
+	public WebDriver getDriver() {
+		return driver;
 	}
+
+
+	public WebElement getPatients() {
+		return patients;
+	}
+
+
+	public WebElement getDoctorslogin() {
+		return doctorslogin;
+	}
+
+
+	public WebElement getAdminlogin() {
+		return adminlogin;
+	}
+
+
+	public WebElement getContact() {
+		return contact;
+	}
+	@FindBy(xpath ="//a[@href='hms/doctor/']")
+	private WebElement doctorslogin ;
+	@FindBy(xpath ="//a[@href='hms/admin']")
+	private WebElement adminlogin ;
+	@FindBy(xpath ="//a[@href='contact.php']")
+	private WebElement contact ;
+	@FindBy(xpath = "//img[@src='assets/images/images.jpg']")
+	private WebElement imgclick;
+	public WebElement getImgclick() {
+		return imgclick;
+	}
+
+
+	public WebElement getLogout() {
+		return logout;
+	}
+	@FindBy(xpath ="//a[@href='logout.php']")
+	private WebElement logout;
+	
+		
+	
+	
+	 
+	public void logout() {
+		imgclick.click();
+		logout.click();		}
 
 	
 
