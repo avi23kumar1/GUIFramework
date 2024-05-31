@@ -21,6 +21,7 @@ public class Doctorpage extends WebDriverUtility{
 	 private WebElement doctorClinicAddEdit;
 	 @FindBy(name = "submit")
 	 private WebElement updateBtn;
+	 
 	 @FindBy(xpath ="//span[text()=' Search ']")
 	 private WebElement searchBtn;
 	 @FindBy(xpath = "Doctor | Manage Patients")
