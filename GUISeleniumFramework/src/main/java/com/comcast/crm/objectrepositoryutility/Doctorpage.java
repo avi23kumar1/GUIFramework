@@ -12,6 +12,7 @@ public class Doctorpage extends WebDriverUtility{
 	 public Doctorpage(WebDriver driver) {            
 		 this.driver = driver;
 		 PageFactory.initElements(driver, this);
+		 
 	 }
 	 @FindBy(xpath = "(//a[@href='edit-profile.php'])[2]")
 	 private WebElement updateProfileLink;
